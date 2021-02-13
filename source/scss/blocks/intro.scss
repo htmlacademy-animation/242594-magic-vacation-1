@@ -94,6 +94,12 @@
   font-size: 2.4rem;
   line-height: 1.27;
 
+  .active & {
+    animation: slideUp ease-out .4s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+
   @media (min-width: $stop-scaling) {
     width: 509px;
     font-size: 24px;

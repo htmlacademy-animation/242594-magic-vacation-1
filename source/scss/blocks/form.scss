@@ -2,6 +2,8 @@
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+  width: 100%;
 }
 
 .form__label {
@@ -44,6 +46,13 @@
   border-radius: 3rem;
   outline: none;
 
+  .screen.active & {
+    animation-name: growLeft;
+    animation-duration:  1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+
   &:focus {
     border: 1px solid $c-purple;
   }
@@ -80,6 +89,7 @@
 
 .form__button {
   flex-grow: 1;
+  max-width: 18rem;
 
   @media (orientation: portrait) {
     position: relative;
