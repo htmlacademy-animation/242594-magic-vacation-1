@@ -100,15 +100,15 @@
   opacity: 0;
   transform: translateX(15px);
 
-  .swiper-slide-active &, .swiper-slide-next & {
+  .active .swiper-slide-active &, .active .swiper-slide-next & {
     animation: slideLeft ease-out .4s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
   }
-  .swiper-slide-active & {
+  .active .swiper-slide-active & {
     animation-delay: .3s;
   }
-  .swiper-slide-next & {
+  .active .swiper-slide-next & {
     animation-delay: .4s;
   }
 

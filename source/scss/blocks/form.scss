@@ -45,10 +45,10 @@
   border: 0;
   border-radius: 3rem;
   outline: none;
+  opacity: 0;
 
   .screen.active & {
-    animation-name: growLeft;
-    animation-duration:  1s;
+    animation: growLeft ease 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
   }
