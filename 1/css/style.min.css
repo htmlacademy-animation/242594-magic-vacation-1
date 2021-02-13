@@ -1001,6 +1001,7 @@ img {
     opacity: 1;
     max-width: 0; }
   100% {
+    opacity: 1;
     max-width: 100vw; } }
 
 .animation-screen {
@@ -1355,10 +1356,10 @@ img {
   color: #5f458c;
   border: 0;
   border-radius: 3rem;
-  outline: none; }
+  outline: none;
+  opacity: 0; }
   .screen.active .form__field {
-    animation-name: growLeft;
-    animation-duration: 1s;
+    animation: growLeft ease 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards; }
   .form__field:focus {
@@ -1625,7 +1626,8 @@ img {
   max-width: 50%;
   text-transform: uppercase;
   font-size: 2.4rem;
-  line-height: 1.27; }
+  line-height: 1.27;
+  opacity: 0; }
   .active .intro__message {
     animation: slideUp ease-out .4s;
     animation-iteration-count: 1;
@@ -2994,13 +2996,13 @@ img {
   line-height: 2rem;
   opacity: 0;
   transform: translateX(15px); }
-  .swiper-slide-active .slider__item-text, .swiper-slide-next .slider__item-text {
+  .active .swiper-slide-active .slider__item-text, .active .swiper-slide-next .slider__item-text {
     animation: slideLeft ease-out .4s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards; }
-  .swiper-slide-active .slider__item-text {
+  .active .swiper-slide-active .slider__item-text {
     animation-delay: .3s; }
-  .swiper-slide-next .slider__item-text {
+  .active .swiper-slide-next .slider__item-text {
     animation-delay: .4s; }
   @media (min-width: 2000px) {
     .slider__item-text {
