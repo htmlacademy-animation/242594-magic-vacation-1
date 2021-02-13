@@ -90,12 +90,27 @@
   }
 }
 
+
 .slider__item-text {
   margin-top: 3.6rem;
   margin-bottom: 0;
   max-width: 34rem;
   font-size: 1.8rem;
   line-height: 2rem;
+  opacity: 0;
+  transform: translateX(15px);
+
+  .active .swiper-slide-active &, .active .swiper-slide-next & {
+    animation: slideLeft ease-out .4s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+  .active .swiper-slide-active & {
+    animation-delay: .3s;
+  }
+  .active .swiper-slide-next & {
+    animation-delay: .4s;
+  }
 
   @media (min-width: $stop-scaling) {
     margin-top: 36px;
