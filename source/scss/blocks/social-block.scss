@@ -27,15 +27,19 @@
   }
 
   &::before {
-    @include center;
     content: "";
+    top: 0;
+    left: 0;
+    display: block;
     width: 100%;
     height: 100%;
     border-radius: 50%;
     background-color: $c-light;
-    border: 2px solid $c-light;
+    box-shadow: inset 2px 0 0 $c-light;
     z-index: -1;
-    transition: width ease .3s, height ease .3s, background-color ease .3s, border-color ease .3s;
+    transform: scale(0);
+    transform-origin: center;
+    transition: transform ease .3s, background-color ease .3s, box-shadow ease .3s;
   }
 
   svg {
@@ -46,13 +50,21 @@
     transition: color ease .3s;
   }
 
+  .body-loaded & {
+    &::before {
+      animation: bounceGrowCenter ease .3s;
+      animation-delay: .8s;
+      animation-fill-mode: forwards;
+      animation-iteration-count: 1;
+    }
+  }
+
   &:hover,
   .social-block--active & {
     color: $c-purple;
 
     &::before {
-      width: 112.5%;
-      height: 112.5%;
+      transform: scale(1.125);
     }
   }
 
@@ -61,7 +73,7 @@
     outline: none;
 
     &::before {
-      border-color: $c-purple;
+      box-shadow: inset 0 0 0 2px $c-purple;
     }
 
     & + .social-block__list {
@@ -78,7 +90,7 @@
       width: 100%;
       height: 100%;
       background-color: $c-purple;
-      border-color: $c-purple;
+      box-shadow: inset 0 0 0 2px $c-purple;
     }
   }
 }

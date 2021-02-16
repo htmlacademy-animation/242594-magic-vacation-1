@@ -35,3 +35,38 @@
     max-width: 100vw;
   }
 }
+
+@keyframes bounceGrowCenter {
+  0% {
+    transform: scale(0);
+    transform-origin: center;
+  }
+  80% {
+    transform: scale(1.125);
+    transform-origin: center;
+  }
+  100% {
+    transform: scale(1);
+    transform-origin: center;
+  }
+}
+
+@keyframes menuUnderlineFirstBefore {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+@keyframes menuUnderlineFirst {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0;
+  }
+}
