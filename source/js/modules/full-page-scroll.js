@@ -43,15 +43,28 @@ export default class FullPageScroll {
   }
 
   changeVisibilityDisplay() {
-    this.screenElements.forEach((screen) => {
-      screen.classList.add(`screen--hidden`);
-      screen.classList.remove(`active`);
-    });
-    this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
+    const nextScreen = this.screenElements[this.activeScreen];
+    const bgFiller = document.querySelector('.bg-filler');
+    const timeout = +nextScreen.dataset.timeout || 0;
+
+    if (nextScreen.classList.contains('js-fill-before')) {
+      bgFiller.classList.add('active');
+    } else {
+      bgFiller.classList.remove('active');
+    }
 
     setTimeout(() => {
-      this.screenElements[this.activeScreen].classList.add(`active`);
-    }, 100);
+      this.screenElements.forEach((screen) => {
+        screen.classList.add(`screen--hidden`);
+        screen.classList.remove(`active`);
+      });
+
+      nextScreen.classList.remove(`screen--hidden`);
+
+      setTimeout(() => {
+        nextScreen.classList.add(`active`);
+      }, 100);
+    }, timeout);
   }
 
   changeActiveMenuItem() {

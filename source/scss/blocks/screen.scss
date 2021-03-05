@@ -3,11 +3,18 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  z-index: 1;
+  z-index: 10;
   overflow: hidden;
 
   &--hidden {
     display: none;
+  }
+
+  &.active {
+    z-index: 30;
+    &.js-fill-before {
+      z-index: 40;
+    }
   }
 
   @media (max-width: $tablet) and (orientation: portrait) {
@@ -305,10 +312,6 @@
     background-size: auto calc(100vh - 13.8rem), 100% 25rem;
     background-position: top center, bottom center;
   }
-}
-
-.screen--prizes {
-  background-color: $c-dark;
 }
 
 .screen--game {
