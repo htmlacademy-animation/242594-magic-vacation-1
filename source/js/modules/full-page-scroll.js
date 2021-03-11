@@ -7,6 +7,7 @@ export default class FullPageScroll {
     this.screenElements = document.querySelectorAll(`.screen:not(.screen--result)`);
     this.menuElements = document.querySelectorAll(`.page-header__menu .js-menu-link`);
 
+    this.prevScreen = null;
     this.activeScreen = 0;
     this.onScrollHandler = this.onScroll.bind(this);
     this.onUrlHashChengedHandler = this.onUrlHashChanged.bind(this);
@@ -32,6 +33,7 @@ export default class FullPageScroll {
 
   onUrlHashChanged() {
     const newIndex = Array.from(this.screenElements).findIndex((screen) => location.hash.slice(1) === screen.id);
+    this.prevScreen = this.activeScreen;
     this.activeScreen = (newIndex < 0) ? 0 : newIndex;
     this.changePageDisplay();
   }
@@ -43,14 +45,16 @@ export default class FullPageScroll {
   }
 
   changeVisibilityDisplay() {
+    const currentScreen = this.screenElements[this.prevScreen];
     const nextScreen = this.screenElements[this.activeScreen];
-    const bgFiller = document.querySelector('.bg-filler');
-    const timeout = +nextScreen.dataset.timeout || 0;
+    const bgFiller = document.querySelector(`.bg-filler```);
+    const isFromStoryScreen = currentScreen.classList.contains(`screen--story`);
+    const timeout = isFromStoryScreen && nextScreen.dataset.timeout ? +nextScreen.dataset.timeout : 0;
 
-    if (nextScreen.classList.contains('js-fill-before')) {
-      bgFiller.classList.add('active');
+    if (isFromStoryScreen && nextScreen.classList.contains(`js-fill-before`)) {
+      bgFiller.classList.add(`active`);
     } else {
-      bgFiller.classList.remove('active');
+      bgFiller.classList.remove(`active`);
     }
 
     setTimeout(() => {
