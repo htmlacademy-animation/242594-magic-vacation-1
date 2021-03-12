@@ -47,7 +47,7 @@ export default class FullPageScroll {
   changeVisibilityDisplay() {
     const currentScreen = this.screenElements[this.prevScreen];
     const nextScreen = this.screenElements[this.activeScreen];
-    const bgFiller = document.querySelector(`.bg-filler```);
+    const bgFiller = document.querySelector(`.bg-filler`);
     const isFromStoryScreen = currentScreen.classList.contains(`screen--story`);
     const timeout = isFromStoryScreen && nextScreen.dataset.timeout ? +nextScreen.dataset.timeout : 0;
 
